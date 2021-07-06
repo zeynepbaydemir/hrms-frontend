@@ -1,6 +1,6 @@
 import React from 'react'
 import JobPositionList from '../pages/JobPositionList'
-import JobCandidateList from '../pages/JobCandidateList'
+import CandidateList from '../pages/CandidateList'
 import EmployerList from '../pages/EmployerList'
 import EmployeeList from '../pages/EmployeeList'
 import Categories from './Categories'
@@ -19,7 +19,7 @@ export default function Dashboard() {
                     <Grid.Column width={12}>
                         <EmployeeList />
                         <EmployerList/>
-                        <JobCandidateList/>
+                        <CandidateList/>
                         <JobPositionList/>
                     </Grid.Column>
                 </Grid.Row>

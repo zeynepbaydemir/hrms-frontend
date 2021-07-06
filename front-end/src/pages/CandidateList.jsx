@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState,useEffect} from 'react'
 import { Icon, Label, Menu, Table ,Header} from 'semantic-ui-react'
-import EmployeeService from '../services/employeeService';
+import CandidateService from '../services/candidateService';
 
 
+export default function CandidateList() {
 
-export default function EmployeeList() {
-
-    const [employees, setEmployees] = useState([]);
+    const [candidates, setCandidates] = useState([]);
 
     useEffect(()=>{
-        let employeeService = new EmployeeService()
-        employeeService.getEmployees().then(result=>setEmployees(result.data.data))
+        let candidateService = new CandidateService()
+        candidateService.getCandidates().then(result=>setCandidates(result.data.data))
     },[])
 
     return (
-        <div> 
-            <Header as="h3">
-                <Header.Content size='large '>Personel Listesi</Header.Content>
+        <div>
+             <Header as="h3">
+                <Header.Content size='large '>İş Arayanlar Listesi</Header.Content>
             </Header>
-
 
             <div style={{ paddingBottom: "5px",background: "linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%)" }}></div>
             
@@ -27,23 +25,27 @@ export default function EmployeeList() {
                     <Table.Row>
                         <Table.HeaderCell>İsim</Table.HeaderCell>
                         <Table.HeaderCell>Soy İsim</Table.HeaderCell>
+                        <Table.HeaderCell>Doğum Tarihi</Table.HeaderCell>
+                        <Table.HeaderCell>TC Kimlik Numarası</Table.HeaderCell>
                         <Table.HeaderCell>E-posta</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                    
                 <Table.Body>
-                    {employees.map((employee)=>(
-                    <Table.Row key={employee.id}>
-                        <Table.Cell>{employee.firstName}</Table.Cell>
-                        <Table.Cell>{employee.lastName}</Table.Cell>
-                        <Table.Cell>{employee.email}</Table.Cell>
+                    {candidates.map((candidate)=>(
+                    <Table.Row key={candidate.id}>
+                        <Table.Cell>{candidate.firstName}</Table.Cell>
+                        <Table.Cell>{candidate.lastName}</Table.Cell>
+                        <Table.Cell>{candidate.dateOfBirth}</Table.Cell>
+                        <Table.Cell>{candidate.nationalIdentity}</Table.Cell>
+                        <Table.Cell>{candidate.email}</Table.Cell>
                     </Table.Row>
                     ))}
                 </Table.Body>
-
+                
                 <Table.Footer>
                     <Table.Row>
-                        <Table.HeaderCell colSpan='3'>
+                        <Table.HeaderCell colSpan='5'>
                             <Menu floated='right' pagination>
                                 <Menu.Item as='a' icon>
                                     <Icon name='chevron left' />
@@ -61,5 +63,5 @@ export default function EmployeeList() {
                 </Table.Footer>
             </Table>
         </div>
-    )
+    );
 }

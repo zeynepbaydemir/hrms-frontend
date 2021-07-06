@@ -21,10 +21,10 @@ export default function Navi() {
                     
 
                     <Menu.Item>
-                        <Button primary >Sign Up</Button>
+                        <Button primary >Kayıt Ol</Button>
                     </Menu.Item>
                     <Menu.Item>
-                        <Button>Log In</Button>
+                        <Button>Giriş Yap</Button>
                     </Menu.Item>
                 </Menu.Menu>
                 </Container>

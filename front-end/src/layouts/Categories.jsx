@@ -6,16 +6,16 @@ export default function Categories() {
         <div>
             <Menu pointing vertical>
                 <Menu.Item
-                    name='Employee List'
+                    name='Personel Listesi'
                 />
                 <Menu.Item
-                    name='Employer List'
+                    name='İşveren Listesi'
                 />
                 <Menu.Item
-                    name='Job Candidate List'
+                    name='İş Arayanlar Listesi'
                 />
                 <Menu.Item
-                    name='Job Position List'
+                    name='İş Pozisyonları Listesi'
                 />
             </Menu>
         </div>

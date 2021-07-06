@@ -1,36 +1,37 @@
-import React from 'react'
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import { Icon, Label, Menu, Table ,Header} from 'semantic-ui-react'
+import JobPositionService from '../services/jobPositionService';
 
 export default function JobPositionList() {
+
+    const [positions , setPositions] = useState([]);
+
+    useEffect(()=>{
+        let jobPositionService = new JobPositionService()
+        jobPositionService.getPositions().then(result=>setPositions(result.data.data))
+    },[])
+
     return (
         <div>
+            <Header as="h3">
+                <Header.Content size='large '>İş Pozisyonları Listesi</Header.Content>
+            </Header>
+
             <div style={{ paddingBottom: "5px",background: "linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%)" }}></div>
             <Table celled>
             
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Job Position List</Table.HeaderCell>
-                        <Table.HeaderCell>Header</Table.HeaderCell>
-                        <Table.HeaderCell>Header</Table.HeaderCell>
+                        <Table.HeaderCell>İş Unvanı</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                    
                 <Table.Body>
-                    <Table.Row>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
+                    {positions.map((position)=>(
+                    <Table.Row key={position.id}>
+                        <Table.Cell>{position.jobTitle}</Table.Cell>
                     </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                    </Table.Row>
+                    ))}
                 </Table.Body>
 
                 <Table.Footer>
