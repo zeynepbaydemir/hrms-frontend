@@ -1,4 +1,5 @@
-![Untitled_Diagram](https://user-images.githubusercontent.com/78684394/124153875-989bcc80-da9d-11eb-9299-261854f9d806.png)
+![UML-Diagram](https://user-images.githubusercontent.com/78684394/124538298-0dfff800-de24-11eb-8a09-6714c69de7f0.png)
+
 
 # hrms-frontend
 hrms frontend
